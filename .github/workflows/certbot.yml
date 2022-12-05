@@ -21,7 +21,7 @@ jobs:
           DOMAIN: ${{ secrets.DOMAIN }}
         run: |
           echo "dns_cloudflare_api_token = $CF_API_TOKEN" > ./cftoken
-          certbot certonly --dns-cloudflare --dns-cloudflare-credentials ./cftoken -d $DOMAIN --non-interactive
+          sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials ./cftoken -d $DOMAIN --non-interactive
           rm ./cftoken
       - name: auto-push to github
         run: |
