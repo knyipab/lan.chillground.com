@@ -11,11 +11,11 @@ jobs:
       - uses: actions/checkout@v3
       - name: install certbot
         run: |
-          snap install --classic certbot
+          sudo snap install --classic certbot
           sudo ln -s /snap/bin/certbot /usr/bin/certbot
           sudo snap set certbot trust-plugin-with-root=ok
           sudo snap install certbot-dns-cloudflare
-      - name: install certbot
+      - name: run certbot
         env:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           DOMAIN: ${{ secrets.DOMAIN }}
